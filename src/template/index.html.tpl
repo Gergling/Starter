@@ -10,7 +10,6 @@
         <script type="text/javascript" src="<%- path %>"></script>
         <% }); %>
     </head>
-    <body>
-        Stuff
+    <body ui-view>
     </body>
 </html>

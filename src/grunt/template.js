@@ -13,8 +13,11 @@ module.exports = function (grunt) {
         ]),
         js: {
             vendor: [
-                'node_modules/angular/angular.js'
-            ],
+                'angular/angular.js',
+                'angular-ui-router/release/angular-ui-router.js'
+            ].map(function (path) {
+                return 'node_modules/' + path;
+            }),
             src: expand([
                 'module',
                 '*'
@@ -28,7 +31,10 @@ module.exports = function (grunt) {
         'process-html-template': {
             options: {
                 data: {
-                    paths: paths
+                    paths: {
+                        css: paths.css,
+                        js: paths.js.vendor.concat(paths.js.src)
+                    }
                 }
             },
             files: {
