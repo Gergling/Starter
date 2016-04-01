@@ -5,9 +5,7 @@
   "name": "starter",
   "private": true,
   "scripts": {
-    "start": "http-server . -p 8888",
-    "test": "echo Open http://127.0.0.1:8888/SpecRunner.html' to see tests.",
-    "jscs": "jscs js"
+    "start": "http-server . -p 8888"
   },
   "version": "0.1.0",
   "dependencies": {
