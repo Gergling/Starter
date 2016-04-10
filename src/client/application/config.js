@@ -5,7 +5,7 @@ angular.module('application').config(function ($stateProvider, $urlRouterProvide
             templateUrl: "src/client/application/partial/index.html"
         })
         .state('404', {
-            url: "/*",
+            url: "/*path",
             templateUrl: "src/client/application/partial/404.html"
         });
     
