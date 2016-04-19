@@ -3,6 +3,8 @@
     <head>
         <title>Basic Project</title>
 
+        <link rel="stylesheet" href="build/scss.css">
+
         <% paths.css.forEach(function (path) {%>
         <link rel="stylesheet" href="<%- path %>">
         <% }); %>
