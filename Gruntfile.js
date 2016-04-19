@@ -6,7 +6,7 @@ module.exports = function (grunt) {
     'use strict';
 
     grunt.initConfig({
-        // jasmine
+        sass: require('./src/grunt/sass')(grunt),
         template: require('./src/grunt/template')(grunt),
         jasmine: require('./src/grunt/jasmine')(grunt)
         // coverage
