@@ -62,7 +62,7 @@ describe('gdToolkitAbsoluteTiles factory', function () {
                                 });
                                 it('a non-integer, which throws an error', function () {
                                     ['a-non-integer', {}, 1.2].forEach(function (input) {
-                                        expect(obj[dimension](input)).toThrow(new Exception('Tile.width: Invalid input type. Expecting an integer.'));
+                                        expect(obj[dimension](input)).toThrow(new Exception('Tile.' + dimension + ': Invalid input type. Expecting an integer.'));
                                     });
                                 });
                             });
