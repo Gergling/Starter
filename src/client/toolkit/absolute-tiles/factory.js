@@ -5,6 +5,12 @@ angular.module('gdToolkitAbsoluteTiles').factory('gdToolkitAbsoluteTilesFactory'
     var TileSet = function () {
         var tiles = [];
 
+        var defaultTile = new Tile();
+
+        this.default = function () {
+            return defaultTile;
+        };
+
         this.tile = function (x, y) {
             if (typeof y === 'number') {
                 var tile = tiles.filter(function (tile) {
