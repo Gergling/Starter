@@ -16,6 +16,7 @@ angular.module('gdToolkitAbsoluteTiles').factory('gdToolkitAbsoluteTilesFactory'
                 }
                 return tile;
             }
+            return tiles;
         };
     };
 
