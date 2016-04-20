@@ -11,9 +11,10 @@ angular.module('gdToolkitAbsoluteTiles').factory('gdToolkitAbsoluteTilesFactory'
                     return tile.x() === x && tile.y() === y;
                 })[0];
                 if (!tile) {
-                    tile = new Tile();
+                    tile = new Tile(x, y);
+                    tiles.push(tile);
                 }
-                tiles.push(tile);
+                return tile;
             }
         };
     };
