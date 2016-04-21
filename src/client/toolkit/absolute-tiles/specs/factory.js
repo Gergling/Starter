@@ -73,8 +73,8 @@ describe('gdToolkitAbsoluteTiles factory', function () {
                             it('#' + colourType + 'Colour can be passed a colour as a string, which it stores and returns', function () {
                                 // Consider testing for valid colours
                                 var colour = 'some-colour';
-                                expect(obj[colourType + 'colour'](colour)).toBe(colour);
-                                expect(obj[colourType + 'colour']()).toBe(colour);
+                                expect(obj[colourType + 'Colour'](colour)).toBe(colour);
+                                expect(obj[colourType + 'Colour']()).toBe(colour);
                             });
                         });
                     });
