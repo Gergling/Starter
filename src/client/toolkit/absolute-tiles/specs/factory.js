@@ -46,6 +46,8 @@ describe('gdToolkitAbsoluteTiles factory', function () {
                         var tile;
                         beforeEach(function () {
                             tile = obj.tile(x, y);
+                        });
+                        it('object', function () {
                             expect(tile.constructor).toBe(Tile);
                         });
                         it('with the given location', function () {
