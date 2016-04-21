@@ -1,5 +1,11 @@
 angular.module('gdToolkitAbsoluteTiles').factory('gdToolkitAbsoluteTilesFactory', function () {
-    var Tile = function () {
+    var Tile = function (x, y) {
+        var scope = this;
+        ['x', 'y'].forEach(function (functionName) {
+            scope[functionName] = function () {
+                return functionName === 'x' ? x : y;
+            };
+        });
 
     };
     var TileSet = function () {
