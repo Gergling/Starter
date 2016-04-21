@@ -55,16 +55,21 @@ describe('gdToolkitAbsoluteTiles factory', function () {
                             expect(tile.y()).toBe(y);
                         });
                         ['width', 'height'].forEach(function (dimension) {
-                            describe('#' + dimension + ' can be passed', function () {
-                                it('an integer, which it stores and returns', function () {
-                                    [0,1,2,10,101].forEach(function (integer) {
-                                        expect(obj[dimension](integer)).toBe(integer);
-                                        expect(obj[dimension]()).toBe(integer);
-                                    });
+                            describe('#' + dimension, function () {
+                                it('is a function', function () {
+                                    expect(typeof obj[dimension]).toBe('function');
                                 });
-                                it('a non-integer, which throws an error', function () {
-                                    ['a-non-integer', {}, 1.2].forEach(function (input) {
-                                        expect(obj[dimension](input)).toThrow(new Exception('Tile.' + dimension + ': Invalid input type. Expecting an integer.'));
+                                describe('can be passed', function () {
+                                    it('an integer, which it stores and returns', function () {
+                                        [0,1,2,10,101].forEach(function (integer) {
+                                            expect(obj[dimension](integer)).toBe(integer);
+                                            expect(obj[dimension]()).toBe(integer);
+                                        });
+                                    });
+                                    it('a non-integer, which throws an error', function () {
+                                        ['a-non-integer', {}, 1.2].forEach(function (input) {
+                                            expect(obj[dimension](input)).toThrow(new Error('Tile.' + dimension + ': Invalid input type. Expecting an integer.'));
+                                        });
                                     });
                                 });
                             });
