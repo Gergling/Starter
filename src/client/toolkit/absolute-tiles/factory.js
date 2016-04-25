@@ -7,6 +7,27 @@ angular.module('gdToolkitAbsoluteTiles').factory('gdToolkitAbsoluteTilesFactory'
             };
         });
 
+        var data = {};
+        ['width', 'height'].forEach(function (functionName) {
+            scope[functionName] = function (value) {
+                if (typeof value !== 'undefined') {
+                    if (typeof value === 'number' && value === Math.round(value)) {
+                        data[functionName] = value;
+                    } else {
+                        throw new Error('Tile.' + functionName + ': Invalid input type. Expecting an integer, got "' + value + '".');
+                    }
+                }
+                return data[functionName];
+            };
+        });
+        ['background', 'text'].forEach(function (functionName) {
+            scope[functionName + 'Colour'] = function (value) {
+                if (typeof value !== 'undefined') {
+                    data[functionName] = value;
+                }
+                return data[functionName];
+            };
+        });
     };
     var TileSet = function () {
         var tiles = [];
