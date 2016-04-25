@@ -57,34 +57,43 @@ describe('gdToolkitAbsoluteTiles factory', function () {
                         ['width', 'height'].forEach(function (dimension) {
                             describe('#' + dimension, function () {
                                 it('is a function', function () {
-                                    expect(typeof obj[dimension]).toBe('function');
+                                    expect(typeof tile[dimension]).toBe('function');
                                 });
                                 describe('can be passed', function () {
                                     it('an integer, which it stores and returns', function () {
                                         [0,1,2,10,101].forEach(function (integer) {
-                                            expect(obj[dimension](integer)).toBe(integer);
-                                            expect(obj[dimension]()).toBe(integer);
+                                            expect(tile[dimension](integer)).toBe(integer);
+                                            expect(tile[dimension]()).toBe(integer);
                                         });
                                     });
-                                    it('a non-integer, which throws an error', function () {
+                                    describe('a non-integer such as', function () {
                                         ['a-non-integer', {}, 1.2].forEach(function (input) {
-                                            expect(obj[dimension](input)).toThrow(new Error('Tile.' + dimension + ': Invalid input type. Expecting an integer.'));
+                                            it('"' + input + '" to throw an error', function () {
+                                                expect(function () {tile[dimension](input);}).toThrow(new Error('Tile.' + dimension + ': Invalid input type. Expecting an integer, got "' + input + '".'));
+                                            });
                                         });
                                     });
                                 });
                             });
                         });
                         ['background', 'text'].forEach(function (colourType) {
-                            it('#' + colourType + 'Colour can be passed a colour as a string, which it stores and returns', function () {
-                                // Consider testing for valid colours
-                                var colour = 'some-colour';
-                                expect(obj[colourType + 'Colour'](colour)).toBe(colour);
-                                expect(obj[colourType + 'Colour']()).toBe(colour);
+                            describe('#' + colourType + 'Colour', function () {
+                                it ('is a function.', function () {
+                                    expect(typeof tile[colourType + 'Colour']).toBe('function');
+                                });
+                                it('can be passed a colour as a string, which it stores and returns', function () {
+                                    // Consider testing for valid colours
+                                    var colour = 'some-colour';
+                                    expect(tile[colourType + 'Colour'](colour)).toBe(colour);
+                                    expect(tile[colourType + 'Colour']()).toBe(colour);
+                                });
                             });
                         });
                     });
                     describe('with no tile', function () {
+                        it('will have the default tile settings', function () {
 
+                        });
                     });
                     describe('with an existing tile', function () {
 
