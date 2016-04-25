@@ -5,7 +5,8 @@
   "name": "starter",
   "private": true,
   "scripts": {
-    "start": "http-server . -p 8888"
+    "start": "http-server . -p 8888",
+    "build": "grunt"
   },
   "version": "0.1.0",
   "dependencies": {
