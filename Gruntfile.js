@@ -5,12 +5,23 @@
 module.exports = function (grunt) {
     'use strict';
 
-    grunt.initConfig({
-        sass: require('./src/grunt/sass')(grunt),
-        template: require('./src/grunt/template')(grunt),
-        jasmine: require('./src/grunt/jasmine')(grunt)
-        // coverage
-        // jslint
+    //require('load-grunt-tasks')(grunt);
+
+    // grunt.initConfig({
+    //     sass: require('./src/grunt/sass')(grunt),
+    //     template: require('./src/grunt/template')(grunt),
+    //     jasmine: require('./src/grunt/jasmine')(grunt)
+    //     // coverage
+    //     // jslint
+    // });
+    [
+        'connect',
+        'jasmine',
+        'sass',
+        //'serve',
+        'template'
+    ].forEach(function (taskName) {
+        grunt.config.set(taskName, require('./src/grunt/' + taskName)(grunt));
     });
 
     grunt.registerTask('default', [ 'build' ]);
