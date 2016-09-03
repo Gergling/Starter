@@ -23,7 +23,9 @@ module.exports = function (grunt) {
                 '*'
             ].map(function (blob) {
                 return blob + '.js';
-            }))
+            })).concat([
+                '!src/client/toolkit/*/specs/*.js' 
+            ])
         }
     };
 

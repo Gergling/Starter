@@ -1,6 +1,7 @@
-// Todo: Run everything from npm scripts
-// Todo: Split up this file
-// Todo: Use sublime as IDE
+// Todo: E2E Testing
+// Todo: Linting
+// Todo: Unit Testing - install angular mocks
+// Todo: Use a node server instead of the http-server
 
 module.exports = function (grunt) {
     'use strict';
@@ -26,8 +27,13 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [ 'build' ]);
 
+    // Watch:
+    // - New files should run template
+    // - New scss files or scss changes should run sass
+    // - Changes to spec files should run automated tests
     grunt.registerTask('build', [
-        'template', // Build the template
+        'sass',
+        'template',
         // Test the code - failures break the build
         // Lint the code - failures break the build
     ]);
